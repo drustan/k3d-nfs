@@ -4,6 +4,7 @@ Add NFS support in k3d using custom k3s dockerfile. Useful for GitHub Codespace.
 
 - Not use `/opt/` (maybe can revert)
 - Add `touch /run/openrc/softlevel` before starting NFS
+- Use the `/bin/k3d-entrypoint-*.sh` [method](https://github.com/k3d-io/k3d/issues/1109#issuecomment-1614415733) for custom entrypoint script
 
 ## To use
 
@@ -17,7 +18,7 @@ Go back to using `/opt/`?
 
 ## Tested with
 
-GitHub codepsace with the Linux universal image (mcr.microsoft.com/devcontainers/universal:2-linux) and k3d feature (version v5.5.1).
+GitHub codepsace with the Linux universal image (mcr.microsoft.com/devcontainers/universal:2-linux) and k3d feature (version v5.5.1). Does NOT work with k3d v4 and older (needs [this commit](https://github.com/k3d-io/k3d/commit/b4158a1dc13cc4dd176a689f07af20e940164243)).
 
 ```console
 $ k3d runtime-info
