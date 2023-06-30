@@ -22,8 +22,8 @@ ENV CRI_CONFIG_FILE="/var/lib/rancher/k3s/agent/etc/crictl.yaml"
 
 COPY --from=rancher/k3s:v1.25.3-k3s1 /bin /bin
 
-COPY entrypoint.sh /bin/
+COPY k3d-entrypoint-nfs.sh /bin/
 
-RUN chmod +x /bin/entrypoint.sh
-ENTRYPOINT ["/bin/entrypoint.sh"]
+RUN chmod +x /bin/k3d-entrypoint-nfs.sh
+ENTRYPOINT ["/bin/k3d-entrypoint-nfs.sh"]
 CMD ["agent"]

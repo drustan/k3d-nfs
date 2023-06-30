@@ -1,21 +1,19 @@
 # Custom image for k3d to have NFS support
 
-Add NFS support in k3d using custom k3s dockerfile. Useful for GitHub Codespace. Based on https://github.com/k3d-io/k3d/issues/1109, and https://github.com/marcoaraujojunior/k3s-docker/commit/914c6f84e0b086ba86b15806062771d9fae5c274. What I changed:
+Add NFS support in k3d using custom k3s dockerfile. Useful for GitHub Codespace. Based on https://github.com/k3d-io/k3d/issues/1109, and https://github.com/marcoaraujojunior/k3s-docker. What I changed:
 
 - Not use `/opt/` (maybe can revert)
 - Add `touch /run/openrc/softlevel` before starting NFS
-- Figured out that sometimes k3d overrides the entrypoint so we have to un-override it
 
 ## To use
 
 ```sh
-export K3D_FIX_CGROUPV2=false
 k3d cluster create -i ghcr.io/jlian/k3d-nfs:v1.25.3-k3s1
 ```
 
 ## To do
 
-Ideally shouldn't have to override the k3d custom entrypoint like this, but not sure how to inject the nfs commands otherwise.
+Go back to using `/opt/`?
 
 ## Tested with
 
