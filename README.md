@@ -1,6 +1,6 @@
 # Custom image for k3d to have NFS support
 
-Add NFS support in k3d using custom k3s dockerfile. Useful for GitHub Codespace. Based on https://github.com/k3d-io/k3d/issues/1109, and https://github.com/marcoaraujojunior/k3s-docker. What I changed:
+Add NFS support in k3d using custom k3s dockerfile. Useful for GitHub Codespace. Based on https://github.com/k3d-io/k3d/issues/1109#issuecomment-1220374460, and https://github.com/marcoaraujojunior/k3s-docker. What I changed:
 
 - Not use `/opt/` (maybe can revert)
 - Add `touch /run/openrc/softlevel` before starting NFS
